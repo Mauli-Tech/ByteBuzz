@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="container my-5">
+
+  <!-- Loader -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <h3 class="mt-2">Fetching news...</h3>
+  </div>
+
+  <!-- News Content -->
+  <div *ngIf="!isLoading && newsItem" class="news-detail">
+    <h2 class="fw-bold">{{ newsItem.title }}</h2>
+
+    <!-- News Metadata -->
+    <p class="text-muted">
+      <i class="fas fa-calendar-alt me-1"></i> {{ newsItem.date }}
+    </p>
+
+    <!-- News Image -->
+    <img [src]="newsItem.image" alt="News Image" class="img-fluid rounded shadow-lg my-3">
+
+    <!-- News Description -->
+    <h3>{{ newsItem.desc }}</h3>
+
+    <p class="lead" *ngFor="let item of newsItem.content">{{ item }}</p>
+  </div>
+
+  <!-- Error Handling -->
+  <div *ngIf="!isLoading && !newsItem">
+    <h3 class="text-danger text-center">News Not Found!</h3>
+  </div>
+
+</div>

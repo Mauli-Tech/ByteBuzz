@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container">
+    <section class="mt-2">
+        <h4 class="text-center fw-bold my-4">
+            <i class="fas fa-newspaper text-primary me-2"></i>News in {{ categoryName }}
+        </h4>
+
+        <!-- News List with Pagination -->
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let news of allNews">
+                <div class="card shadow-lg border-0">
+                    <img [src]="news.image" alt="News Image" class="card-img-top rounded">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ news.title }}</h5>
+                        <p class="text-muted small d-flex align-items-center">
+                            <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                            Published: {{ news.date }}
+                        </p>
+                        <p class="card-text">{{ news.desc }}</p>
+                        <a (click)="viewNewsDetails(news)" class="btn btn-primary btn-sm d-flex align-items-center">
+                            Read More <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Pagination Controls -->
+        <div class="pagination-controls text-center my-4">
+            <button (click)="changePage(pageNumber - 1)" [disabled]="pageNumber <= 1"
+                class="btn btn-outline-primary me-2">
+                Previous
+            </button>
+            <span>Page - {{pageNumber}}</span>
+            <button (click)="changePage(pageNumber + 1)" [disabled]="allNews.length===0"
+                class="btn btn-outline-primary ms-2">
+                Next
+            </button>
+        </div>
+    </section>
+</div>

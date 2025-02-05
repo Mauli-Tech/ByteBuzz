@@ -1,0 +1,95 @@
+.my-bg {
+    background: #FF7518 !important;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+/* Logo */
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Search Box */
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    border-radius: 20px;
+    padding: 8px 12px;
+}
+
+.search-btn {
+    border-color: white !important;
+    border-radius: 20px;
+}
+
+/* Dark Mode Button */
+.toggle-dark-mode {
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-dark-mode:hover {
+    transform: rotate(10deg);
+}
+
+/* Topics Dropdown */
+.dropdown-menu {
+    min-width: 500px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+/* Dark Mode */
+body.dark-theme .dropdown-menu {
+    background: rgba(40, 40, 40, 0.95);
+    color: white;
+}
+
+body.dark-theme .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

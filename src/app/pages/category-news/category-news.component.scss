@@ -1,0 +1,15 @@
+.my-btn {
+    color: orangered !important;
+    border-color: orangered !important;
+    background-color: #fff !important;
+
+    &:hover {
+        background-color: orangered !important;
+        color: #fff !important;
+    }
+}
+
+.page-text {
+    font-weight: bold;
+    font-size: 16px;
+}

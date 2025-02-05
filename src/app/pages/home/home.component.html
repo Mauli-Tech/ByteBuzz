@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="home-banner text-white text-center position-relative">
+    <div class="overlay"></div>
+    <div class="container py-5">
+        <h1 class="fw-bold display-4">Stay Updated with <span class="text-primary">ByteBuzz</span></h1>
+        <p class="lead">Breaking News, Top Stories & Trending Topics</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Trending News Section -->
+    <section class="my-5">
+        <h2 class="text-center fw-bold mb-4">
+            <i class="fas fa-fire text-warning"></i> Trending News
+        </h2>
+        <div class="row gy-4">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let news of topNews">
+                <div class="card shadow-lg border-0">
+                    <img [src]="news.image" alt="News Image" class="card-img-top rounded">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ news.title }}</h5>
+                        <a (click)="viewNewsDetails(news)" class="btn btn-primary btn-sm d-flex align-items-center">
+                            Read More <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="my-5">
+        <h2 class="text-center fw-bold mb-4">
+            <i class="fas fa-clock text-info"></i> Latest News
+        </h2>
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let news of latestNews">
+                <div class="card shadow-lg border-0">
+                    <img [src]="news.image" alt="News Image" class="card-img-top rounded">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ news.title }}</h5>
+                        <a (click)="viewNewsDetails(news)"
+                            class="btn btn-outline-info btn-sm d-flex align-items-center">
+                            Read More <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

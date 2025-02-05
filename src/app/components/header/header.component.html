@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg my-bg"
+    [ngClass]="{ 'navbar-light bg-light': !isDarkMode, 'navbar-dark bg-dark': isDarkMode }">
+    <div class="container">
+        <!-- Logo with Animated Icon -->
+        <a class="navbar-brand fw-bold d-flex align-items-center text-white" routerLink="/">
+            <i class="fas fa-newspaper text-white me-2"></i>
+            <span>Byte<span class="text-white">Buzz</span></span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="redirectToTopic('india')">
+                        <i class="fas fa-fire"></i> India
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="redirectToCategory('trending')">
+                        <i class="fas fa-chart-line"></i> Trending
+                    </a>
+                </li>
+
+                <!-- Categories Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="categoriesDropdown" role="button">
+                        <i class="fas fa-th-large"></i> Categories
+                    </a>
+                    <div class="dropdown-menu topics-dropdown">
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let category of categories">
+                                <a class="dropdown-item" (click)="redirectToCategory(category.toLocaleLowerCase())">
+                                    <i class="{{ getCategoryIcon(category) }}"></i> {{ category }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Topics Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="topicsDropdown" role="button">
+                        <i class="fas fa-list-alt"></i> Topics
+                    </a>
+                    <div class="dropdown-menu topics-dropdown">
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let group of groupedTopics">
+                                <a class="dropdown-item" *ngFor="let topic of group"
+                                    (click)="redirectToTopic(topic.toLocaleLowerCase())">
+                                    <i class="fas fa-circle-notch"></i> {{ topic }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Search Bar -->
+            <form class="d-flex me-3 search-container">
+                <input class="form-control me-2 search-input" type="search" placeholder="Search news..."
+                    aria-label="Search" [(ngModel)]="searchKey" name="search">
+                <button class="btn btn-outline-primary search-btn" type="submit" (click)="redirectToTopic(searchKey)">
+                    <i class="fas fa-search text-white"></i>
+                </button>
+            </form>
+
+            <!-- Dark Mode Toggle -->
+            <!-- <button class="btn btn-outline-secondary ms-2 toggle-dark-mode" (click)="toggleDarkMode()">
+                <i *ngIf="!isDarkMode" class="fas fa-moon"></i>
+                <i *ngIf="isDarkMode" class="fas fa-sun"></i>
+            </button> -->
+        </div>
+    </div>
+</nav>
