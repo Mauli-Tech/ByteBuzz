@@ -38,9 +38,9 @@
                     </a>
                     <div class="dropdown-menu topics-dropdown">
                         <div class="row">
-                            <div class="col-md-4" *ngFor="let category of categories">
-                                <a class="dropdown-item" (click)="redirectToCategory(category.toLocaleLowerCase())">
-                                    <i class="{{ getCategoryIcon(category) }}"></i> {{ category }}
+                            <div class="col-md-4" *ngFor="let group of groupedCategories">
+                                <a class="dropdown-item" *ngFor="let category of group" (click)="redirectToCategory(category?.category.toLocaleLowerCase())">
+                                    <i class="{{ getCategoryIcon(category['display-text']) }}"></i> {{ category['display-text'] }}
                                 </a>
                             </div>
                         </div>
@@ -56,8 +56,8 @@
                         <div class="row">
                             <div class="col-md-4" *ngFor="let group of groupedTopics">
                                 <a class="dropdown-item" *ngFor="let topic of group"
-                                    (click)="redirectToTopic(topic.toLocaleLowerCase())">
-                                    <i class="fas fa-circle-notch"></i> {{ topic }}
+                                    (click)="redirectToTopic(topic.topic.toLocaleLowerCase())">
+                                    <i class="fas fa-circle-notch"></i> {{ topic['display-text'] }}
                                 </a>
                             </div>
                         </div>

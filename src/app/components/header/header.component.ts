@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-header',
@@ -12,29 +13,39 @@ export class HeaderComponent implements OnInit {
   isDarkMode = false;
   searchKey: any
   routeSub: any
+  topics: any = []
+  categories: any = []
 
-  topics: string[] = [
-    'World News', 'Politics', 'Business', 'Technology', 'Science',
-    'Health', 'Sports', 'Entertainment', 'Travel', 'Environment',
-    'Education', 'Food', 'Fashion', 'Culture', 'Automobile',
-    'Cryptocurrency', 'AI & Robotics', 'Space', 'Weather', 'Gaming'
-  ];
-
-  categories: string[] = [
-    'World', 'Politics', 'Business', 'Technology', 'Science', 'Health', 'Sports', 'Entertainment'
-  ];
-
-  groupedTopics: string[][] = [];
+  groupedTopics: any = [];
+  groupedCategories: any = [];
 
   constructor(private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private apiService: ApiService
   ) {
-    this.groupTopics();
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.paramMap.subscribe(params => {
       this.searchKey = params.get('topic');
+    });
+    this.getCategoriesAndTopics()
+  }
+
+  getCategoriesAndTopics(){
+    this.apiService.getAllCategories().subscribe({
+      next: (data: any) => {
+        this.categories = data.categories
+        this.groupCategories()
+      },
+      error: (err: any) => console.error('Error fetching categories:', err)
+    });
+    this.apiService.getAllTopics().subscribe({
+      next: (data: any) => {
+        this.topics = data.topics
+        this.groupTopics()
+      },
+      error: (err: any) => console.error('Error fetching topics:', err)
     });
   }
 
@@ -42,6 +53,13 @@ export class HeaderComponent implements OnInit {
     const groupSize = 5; // Number of topics per column
     for (let i = 0; i < this.topics.length; i += groupSize) {
       this.groupedTopics.push(this.topics.slice(i, i + groupSize));
+    }
+  }
+
+  groupCategories() {
+    const groupSize = 5; // Number of topics per column
+    for (let i = 0; i < this.categories.length; i += groupSize) {
+      this.groupedCategories.push(this.categories.slice(i, i + groupSize));
     }
   }
 

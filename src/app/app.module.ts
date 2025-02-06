@@ -9,6 +9,7 @@ import { CategoryNewsComponent } from './pages/category-news/category-news.compo
 import { TopicNewsComponent } from './pages/topic-news/topic-news.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
     HomeComponent,
     CategoryNewsComponent,
     TopicNewsComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

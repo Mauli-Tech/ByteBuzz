@@ -17,7 +17,7 @@
                             Published: {{ news.date }}
                         </p>
                         <p class="card-text">{{ news.desc }}</p>
-                        <a (click)="viewNewsDetails(news)" class="btn btn-primary btn-sm d-flex align-items-center">
+                        <a (click)="viewNewsDetails(news)" class="btn btn-primary btn-sm d-flex align-items-center my-btn">
                             Read More <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                     </div>
@@ -30,14 +30,15 @@
         <!-- Pagination Controls -->
         <div class="pagination-controls text-center my-4">
             <button (click)="changePage(pageNumber - 1)" [disabled]="pageNumber <= 1"
-                class="btn btn-outline-primary me-2">
+                class="btn btn-outline-primary me-2 my-btn">
                 Previous
             </button>
-            <span>Page - {{pageNumber}}</span>
+            <span class="page-text">Page - {{pageNumber}}</span>
             <button (click)="changePage(pageNumber + 1)" [disabled]="allNews.length===0"
-                class="btn btn-outline-primary ms-2">
+                class="btn btn-outline-primary ms-2 my-btn">
                 Next
             </button>
         </div>
     </section>
 </div>
+<app-footer></app-footer>

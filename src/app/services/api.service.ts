@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  BASE_URL = "http://127.0.0.1:5000"
+  BASE_URL = "https://news-api-zapn.onrender.com"
 
   getLatestNews(): Observable<any> {
     return this.http.get<any>(this.BASE_URL + "/top-news");
@@ -25,5 +25,13 @@ export class ApiService {
 
   getDetailedNews(link: any): Observable<any> {
     return this.http.get<any>(this.BASE_URL + "/news?link=" + link);
+  }
+
+  getAllCategories(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + "/category-all");
+  }
+
+  getAllTopics(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + "/topic-all");
   }
 }
