@@ -29,7 +29,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/ads.txt"
+              "src/ads.txt",
+              "src/web.config"
             ],
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
@@ -103,7 +104,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/ads.txt"
+              "src/ads.txt",
+              "src/web.config"
             ],
             "styles": [
               "src/styles.scss"
