@@ -1,8 +1,12 @@
 <app-header></app-header>
 <div class="container">
     <section class="mt-2">
-        <h4 class="text-center fw-bold my-4">
+        <h4 class="text-center fw-bold my-4" *ngIf="allNews.length!=0">
             <i class="fas fa-newspaper text-primary me-2"></i>News in {{ categoryName }}
+        </h4>
+
+        <h4 class="text-center fw-bold my-4" *ngIf="allNews.length==0">
+            <i class="fas fa-newspaper text-primary me-2"></i>No News found in {{ categoryName }}
         </h4>
 
         <!-- News List with Pagination -->
@@ -29,12 +33,12 @@
 
         <!-- Pagination Controls -->
         <div class="pagination-controls text-center my-4">
-            <button (click)="changePage(pageNumber - 1)" [disabled]="pageNumber <= 1"
+            <button *ngIf="pageNumber!=1" (click)="changePage(pageNumber - 1)" [disabled]="pageNumber <= 1"
                 class="btn btn-outline-primary me-2 my-btn">
                 Previous
             </button>
-            <span class="page-text">Page - {{pageNumber}}</span>
-            <button (click)="changePage(pageNumber + 1)" [disabled]="allNews.length===0"
+            <span class="page-text">Page - {{pageNumber}} : Count - {{allNews.length}} </span>
+            <button *ngIf="allNews.length!==0" (click)="changePage(pageNumber + 1)" [disabled]="allNews.length===0"
                 class="btn btn-outline-primary ms-2 my-btn">
                 Next
             </button>

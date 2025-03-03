@@ -1,25 +1,60 @@
+/* Bright and Vibrant Footer */
 footer {
-  background: #222;
-  color: #ddd;
+  background: linear-gradient(90deg, #FF1493, #FF6B00); /* Purple to Pink */
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
 }
 
-footer a {
-  transition: color 0.3s ease-in-out;
+/* Logo Styling */
+.logo-img {
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
 }
 
-footer a:hover {
-  color: #0d6efd;
-  /* Bootstrap primary color */
+.logo-img:hover {
+  transform: scale(1.1) rotate(-5deg);
+  filter: drop-shadow(0 0 10px #FFD700);
 }
 
+/* Quick Links */
+footer h5 {
+  color: #FFD700; /* Bright Yellow */
+  font-size: 20px;
+}
+
+footer .list-unstyled li {
+  margin: 8px 0;
+}
+
+footer .list-unstyled a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+footer .list-unstyled a:hover {
+  color: #FFD700;
+  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+}
+
+/* Social Media Icons */
+footer .social-icons a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+footer .social-icons a:hover {
+  transform: scale(1.2);
+  color: #FFD700;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+/* Copyright */
 footer .border-top {
-  border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.my-text{
-  cursor: pointer;
-
-  &:hover{
-    color: #0d6efd !important;
-  }
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }

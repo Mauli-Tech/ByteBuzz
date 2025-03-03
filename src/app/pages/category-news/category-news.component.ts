@@ -36,7 +36,6 @@ export class CategoryNewsComponent implements OnInit {
   loadNews(): void {
     this.apiService.getCategoryNews(this.categoryName, this.pageNumber).subscribe((data: any) => {
       this.allNews = data.news;
-      this.latestNews = data.latest_news
     });
   }
 

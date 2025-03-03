@@ -20,10 +20,10 @@
     </p>
 
     <!-- News Image -->
-    <img [src]="newsItem.image" alt="News Image" class="img-fluid rounded shadow-lg my-3">
+    <img [src]="newsItem.image" alt="News Image" class="img-fluid d-block mx-auto rounded shadow-lg my-3">
 
     <!-- News Description -->
-    <h3>{{ newsItem.desc }}</h3>
+    <h4>{{ newsItem.desc }}</h4>
 
     <p class="lead" *ngFor="let item of newsItem.content">{{ item }}</p>
   </div>
