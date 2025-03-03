@@ -9,21 +9,17 @@
 
 <div class="container">
     <!-- Trending News Section -->
-    <section class="my-5">
+    <section class="my-5 main-news">
         <h2 class="text-center fw-bold mb-4">
             <i class="fas fa-fire text-warning"></i> Trending News
         </h2>
-        <div class="row gy-4">
-            <div class="col-lg-12 col-md-12 col-sm-12" *ngFor="let news of topNews">
-                <div class="card shadow-lg border-0">
-                    <img [src]="news.image" alt="News Image" class="card-img-top rounded">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">{{ news.title }}</h5>
-                        <a (click)="viewNewsDetails(news)" class="btn btn-primary btn-sm d-flex align-items-center">
-                            Read More <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
+        <div class="main-card shadow-lg border-0 aut">
+            <img [src]="topNews.image" alt="News Image" class="card-img-top rounded">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ topNews.title }}</h5>
+                <a (click)="viewNewsDetails(topNews)" class="btn btn-primary btn-sm d-flex align-items-center">
+                    Read More <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
     </section>

@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   fetchNews(): void {
     this.apiService.getLatestNews().subscribe({
       next: (data: any) => {
-        this.topNews = data.news
+        this.topNews = data.news[0]
         this.latestNews = data.latest_news
       },
       error: (err: any) => console.error('Error fetching news:', err)
