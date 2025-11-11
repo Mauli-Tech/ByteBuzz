@@ -14,7 +14,7 @@
             <i class="fas fa-fire text-warning"></i> Trending News
         </h2>
         <div class="main-card shadow-lg border-0 aut">
-            <img [src]="topNews.image" alt="News Image" class="card-img-top rounded">
+            <img [src]="topNews.image ? topNews.image : 'assets/no-img.png'" alt="News Image" class="card-img-top rounded">
             <div class="card-body">
                 <h5 class="card-title fw-bold">{{ topNews.title }}</h5>
                 <a (click)="viewNewsDetails(topNews)" class="btn btn-primary btn-sm d-flex align-items-center">
