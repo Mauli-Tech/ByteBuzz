@@ -34,4 +34,8 @@ export class ApiService {
   getAllTopics(): Observable<any> {
     return this.http.get<any>(this.BASE_URL + "/topic-all");
   }
+
+  sendMail(request: any): Observable<any> {
+    return this.http.post<any>(this.BASE_URL + "/send-mail", request);
+  }
 }
